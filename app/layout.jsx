@@ -1,3 +1,4 @@
+import Script from 'next/script';
 import '../styles/globals.css';
 import { Footer } from '../components/footer';
 import { Header } from '../components/header';
@@ -13,6 +14,18 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
+                <Script
+                    src="https://www.googletagmanager.com/gtag/js?id=G-97Y7H47CN8"
+                    strategy="afterInteractive"
+                />
+                <Script id="google-analytics" strategy="afterInteractive">
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-97Y7H47CN8');
+                    `}
+                </Script>
                 <link rel="icon" href="/favicon.svg" sizes="any" />
             </head>
             <body className="antialiased text-white bg-blue-900">
